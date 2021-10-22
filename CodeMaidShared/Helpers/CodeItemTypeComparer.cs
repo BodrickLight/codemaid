@@ -2,6 +2,7 @@ using EnvDTE;
 using SteveCadwallader.CodeMaid.Model.CodeItems;
 using SteveCadwallader.CodeMaid.Properties;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SteveCadwallader.CodeMaid.Helpers
 {
@@ -49,6 +50,8 @@ namespace SteveCadwallader.CodeMaid.Helpers
 
             if (first == second)
             {
+                int attributeOffset = CompareAttributes(x, y);
+
                 // Check if secondary sort by name should occur.
                 if (_sortByName)
                 {
@@ -172,6 +175,29 @@ namespace SteveCadwallader.CodeMaid.Helpers
             if (codeItemField == null) return 0;
 
             return codeItemField.IsReadOnly ? 0 : 1;
+        }
+
+        private static int CompareAttributes(BaseCodeItem x, BaseCodeItem y)
+        {
+            if (x is not BaseCodeItemElement codeItemElementX || y is not BaseCodeItemElement codeItemElementY) return 0;
+
+            var xAttributes = codeItemElementX.Attributes.OfType<CodeAttribute>().Select(x => x.FullName).ToHashSet();
+            var yAttributes = codeItemElementY.Attributes.OfType<CodeAttribute>().Select(x => x.FullName).ToHashSet();
+            var attributeOrder = new[]
+            {
+                "NUnit.SetUpAttribute",
+                "NUnit.TearDownAttribute"
+            };
+
+            foreach (var attribute in attributeOrder)
+            {
+                var presentX = xAttributes.Contains(attribute);
+                var presentY = yAttributes.Contains(attribute);
+                if (presentX && !presentY) return -1;
+                if (!presentX && presentY) return 1;
+            }
+
+            return 0;
         }
 
         private static string NormalizeName(BaseCodeItem codeItem)
