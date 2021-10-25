@@ -156,7 +156,10 @@ namespace SteveCadwallader.CodeMaid.Model.CodeTree
                 organizedCodeItems.AddRange(structuredCodeItems);
 
                 // Sort the list of code items by type recursively.
-                RecursivelySort(organizedCodeItems, new CodeItemTypeComparer(Settings.Default.Digging_SecondarySortTypeByName));
+                RecursivelySort(organizedCodeItems, new CodeItemTypeComparer(
+                    Settings.Default.Digging_SecondarySortTypeByName,
+                    Settings.Default.Reorganizing_SortByAttributes.Split(new[] { "||" }, StringSplitOptions.RemoveEmptyEntries)
+                ));
 
                 // Group the list of code items by type recursively.
                 foreach (var codeItem in organizedCodeItems.OfType<ICodeItemParent>())

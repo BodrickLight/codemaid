@@ -1,6 +1,7 @@
 using EnvDTE;
 using SteveCadwallader.CodeMaid.Model.CodeItems;
 using SteveCadwallader.CodeMaid.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,6 +15,7 @@ namespace SteveCadwallader.CodeMaid.Helpers
         #region Fields
 
         private readonly bool _sortByName;
+        private readonly IReadOnlyCollection<string> _sortByAttributes;
 
         #endregion Fields
 
@@ -23,9 +25,10 @@ namespace SteveCadwallader.CodeMaid.Helpers
         /// Initializes a new instance of the <see cref="CodeItemTypeComparer"/> class.
         /// </summary>
         /// <param name="sortByName">Determines whether a secondary sort by name is performed or not.</param>
-        public CodeItemTypeComparer(bool sortByName)
+        public CodeItemTypeComparer(bool sortByName, IReadOnlyCollection<string> sortByAttributes)
         {
             _sortByName = sortByName;
+            _sortByAttributes = sortByAttributes;
         }
 
         #endregion Constructors
@@ -50,7 +53,12 @@ namespace SteveCadwallader.CodeMaid.Helpers
 
             if (first == second)
             {
-                int attributeOffset = CompareAttributes(x, y);
+                // Check if secondary sort by attributes should occur.
+                int attributeComparison = CompareAttributes(x, y);
+                if (attributeComparison != 0)
+                {
+                    return attributeComparison;
+                }
 
                 // Check if secondary sort by name should occur.
                 if (_sortByName)
@@ -177,19 +185,16 @@ namespace SteveCadwallader.CodeMaid.Helpers
             return codeItemField.IsReadOnly ? 0 : 1;
         }
 
-        private static int CompareAttributes(BaseCodeItem x, BaseCodeItem y)
+        private int CompareAttributes(BaseCodeItem x, BaseCodeItem y)
         {
-            if (x is not BaseCodeItemElement codeItemElementX || y is not BaseCodeItemElement codeItemElementY) return 0;
+            if (!(x is BaseCodeItemElement codeItemElementX) || !(y is BaseCodeItemElement codeItemElementY)) return 0;
 
-            var xAttributes = codeItemElementX.Attributes.OfType<CodeAttribute>().Select(x => x.FullName).ToHashSet();
-            var yAttributes = codeItemElementY.Attributes.OfType<CodeAttribute>().Select(x => x.FullName).ToHashSet();
-            var attributeOrder = new[]
-            {
-                "NUnit.SetUpAttribute",
-                "NUnit.TearDownAttribute"
-            };
+            if (codeItemElementX.Attributes.Count == 0 && codeItemElementY.Attributes.Count == 0) return 0;
 
-            foreach (var attribute in attributeOrder)
+            var xAttributes = codeItemElementX.Attributes.OfType<CodeAttribute>().Select(att => att.FullName).ToHashSet();
+            var yAttributes = codeItemElementY.Attributes.OfType<CodeAttribute>().Select(att => att.FullName).ToHashSet();
+
+            foreach (var attribute in _sortByAttributes)
             {
                 var presentX = xAttributes.Contains(attribute);
                 var presentY = yAttributes.Contains(attribute);

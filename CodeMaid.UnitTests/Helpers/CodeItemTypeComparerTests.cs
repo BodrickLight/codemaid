@@ -4,6 +4,7 @@ using NSubstitute;
 using SteveCadwallader.CodeMaid.Helpers;
 using SteveCadwallader.CodeMaid.Model.CodeItems;
 using SteveCadwallader.CodeMaid.Properties;
+using System;
 
 namespace SteveCadwallader.CodeMaid.UnitTests.Helpers
 {
@@ -21,7 +22,7 @@ namespace SteveCadwallader.CodeMaid.UnitTests.Helpers
         {
             BaseCodeItem itemB = Create<CodeItemField>("b", 1);
             BaseCodeItem itemA = Create<CodeItemField>("a", 2);
-            var comparer = new CodeItemTypeComparer(sortByName: true);
+            var comparer = new CodeItemTypeComparer(sortByName: true, sortByAttributes: Array.Empty<string>());
 
             int result = comparer.Compare(itemA, itemB);
 
@@ -33,7 +34,7 @@ namespace SteveCadwallader.CodeMaid.UnitTests.Helpers
         {
             BaseCodeItem itemB = Create<CodeItemField>("b", 1);
             BaseCodeItem itemA = Create<CodeItemField>("a", 2);
-            var comparer = new CodeItemTypeComparer(sortByName: false);
+            var comparer = new CodeItemTypeComparer(sortByName: false, sortByAttributes: Array.Empty<string>());
 
             int result = comparer.Compare(itemA, itemB);
 
@@ -45,7 +46,7 @@ namespace SteveCadwallader.CodeMaid.UnitTests.Helpers
         {
             BaseCodeItem method = Create<CodeItemMethod>("a", 1);
             BaseCodeItem field = Create<CodeItemField>("z", 2);
-            var comparer = new CodeItemTypeComparer(sortByName: true);
+            var comparer = new CodeItemTypeComparer(sortByName: true, sortByAttributes: Array.Empty<string>());
 
             int result = comparer.Compare(field, method);
 
@@ -57,7 +58,7 @@ namespace SteveCadwallader.CodeMaid.UnitTests.Helpers
         {
             CodeItemMethod methodZ = CreateExplicitMethod("Interface", "Z", 1);
             BaseCodeItem methodX = Create<CodeItemMethod>("X", 2);
-            var comparer = new CodeItemTypeComparer(sortByName: true);
+            var comparer = new CodeItemTypeComparer(sortByName: true, sortByAttributes: Array.Empty<string>());
 
             Settings.Default.Reorganizing_ExplicitMembersAtEnd = false;
             int result = comparer.Compare(methodX, methodZ);
@@ -70,7 +71,7 @@ namespace SteveCadwallader.CodeMaid.UnitTests.Helpers
         {
             CodeItemMethod methodA = CreateExplicitMethod("Interface", "A", 1);
             BaseCodeItem methodB = Create<CodeItemMethod>("B", 2);
-            var comparer = new CodeItemTypeComparer(sortByName: true);
+            var comparer = new CodeItemTypeComparer(sortByName: true, sortByAttributes: Array.Empty<string>());
 
             Settings.Default.Reorganizing_ExplicitMembersAtEnd = true;
             int result = comparer.Compare(methodB, methodA);

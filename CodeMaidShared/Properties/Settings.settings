@@ -576,5 +576,8 @@
     <Setting Name="Reorganizing_RegionsIncludeAccessLevelForMethodsOnly" Type="System.String" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="Reorganizing_SortByAttributes" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

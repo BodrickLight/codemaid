@@ -2306,5 +2306,20 @@ namespace SteveCadwallader.CodeMaid.Properties {
                 this["Reorganizing_RegionsIncludeAccessLevelForMethodsOnly"] = value;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Reorganizing_SortByAttributes
+        {
+            get
+            {
+                return ((string) (this["Reorganizing_SortByAttributes"]));
+            }
+            set
+            {
+                this["Reorganizing_SortByAttributes"] = value;
+            }
+        }
     }
 }

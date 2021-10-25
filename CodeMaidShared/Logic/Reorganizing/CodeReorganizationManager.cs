@@ -121,7 +121,11 @@ namespace SteveCadwallader.CodeMaid.Logic.Reorganizing
                     var codeTree = CodeTreeBuilder.RetrieveCodeTree(new CodeTreeRequest(document, codeItems, CodeSortOrder.File));
 
                     // Recursively reorganize the code tree.
-                    RecursivelyReorganize(codeTree);
+                    var comparer = new CodeItemTypeComparer(
+                        Settings.Default.Reorganizing_AlphabetizeMembersOfTheSameGroup,
+                        Settings.Default.Reorganizing_SortByAttributes.Split(new[] { "||" }, StringSplitOptions.RemoveEmptyEntries)
+                    );
+                    RecursivelyReorganize(codeTree, comparer);
 
                     _package.IDE.StatusBar.Text = string.Format(Resources.CodeMaidReorganized0, document.Name);
                     OutputWindowHelper.DiagnosticWriteLine($"CodeReorganizationManager.Reorganize completed for '{document.FullName}'");
@@ -343,8 +347,9 @@ namespace SteveCadwallader.CodeMaid.Logic.Reorganizing
         /// Recursively reorganizes the specified code items.
         /// </summary>
         /// <param name="codeItems">The code items.</param>
+        /// <param name="comparer">The comparer to use for determining code order.</param>
         /// <param name="parent">The parent to the code items, otherwise null.</param>
-        private void RecursivelyReorganize(IEnumerable<BaseCodeItem> codeItems, ICodeItemParent parent = null)
+        private void RecursivelyReorganize(IEnumerable<BaseCodeItem> codeItems, CodeItemTypeComparer comparer, ICodeItemParent parent = null)
         {
             if (!codeItems.Any())
             {
@@ -362,7 +367,7 @@ namespace SteveCadwallader.CodeMaid.Logic.Reorganizing
             // Get the items in their current order and their desired order.
             var currentOrder = GetReorganizableCodeItemElements(codeItems);
             var desiredOrder = new List<BaseCodeItemElement>(currentOrder);
-            desiredOrder.Sort(new CodeItemTypeComparer(Settings.Default.Reorganizing_AlphabetizeMembersOfTheSameGroup));
+            desiredOrder.Sort(comparer);
 
             // Iterate across the items in the desired order, moving them when necessary.
             for (int desiredIndex = 0; desiredIndex < desiredOrder.Count; desiredIndex++)
@@ -371,7 +376,7 @@ namespace SteveCadwallader.CodeMaid.Logic.Reorganizing
 
                 if (item is ICodeItemParent itemAsParent && ShouldReorganizeChildren(item))
                 {
-                    RecursivelyReorganize(itemAsParent.Children, itemAsParent);
+                    RecursivelyReorganize(itemAsParent.Children, comparer, itemAsParent);
                 }
 
                 int currentIndex = currentOrder.IndexOf(item);
@@ -393,7 +398,7 @@ namespace SteveCadwallader.CodeMaid.Logic.Reorganizing
             var codeItemRegions = codeItems.OfType<CodeItemRegion>();
             foreach (var codeItemRegion in codeItemRegions)
             {
-                RecursivelyReorganize(codeItemRegion.Children, codeItemRegion);
+                RecursivelyReorganize(codeItemRegion.Children, comparer, codeItemRegion);
             }
         }
 
