@@ -714,6 +714,12 @@
   <data name="ReorganizingTypesViewModel_Types" xml:space="preserve">
     <value>类型</value>
   </data>
+  <data name="ReorganizingByAttributes_Header" xml:space="preserve">
+    <value>Sort By Attributes (TBT)</value>
+  </data>
+  <data name="ReorganizingByAttributes_Text" xml:space="preserve">
+    <value>Attributes to reorganize by (one per line, in order of priority) (TBT)</value>
+  </data>
   <data name="ResetToDefaults" xml:space="preserve">
     <value>重置为默认</value>
   </data>

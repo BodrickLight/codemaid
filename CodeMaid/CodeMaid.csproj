@@ -84,6 +84,110 @@
     <Compile Include="source.extension.cs">
       <DependentUpon>source.extension.vsixmanifest</DependentUpon>
     </Compile>
+    <Compile Include="UI\Converters\BooleanInverseConverter.cs" />
+    <Compile Include="UI\Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="UI\Converters\CodeItemParentHighestComplexityConverter.cs" />
+    <Compile Include="UI\Converters\CodeItemParentMemberCountConverter.cs" />
+    <Compile Include="UI\Converters\CodeItemToImageConverter.cs" />
+    <Compile Include="UI\Converters\CodeItemToMetadataStringConverter.cs" />
+    <Compile Include="UI\Converters\DocCommentToStringConverter.cs" />
+    <Compile Include="UI\Converters\EnumDescriptionConverter.cs" />
+    <Compile Include="UI\Converters\EnumToBooleanConverter.cs" />
+    <Compile Include="UI\Converters\IntToThicknessConverter.cs" />
+    <Compile Include="UI\Converters\NameParametersToTextBlockConverter.cs" />
+    <Compile Include="UI\Converters\NullToBooleanConverter.cs" />
+    <Compile Include="UI\Converters\IsGreaterThanOrEqualToConverter.cs" />
+    <Compile Include="UI\Converters\PropertyInfoDescriptionConverter.cs" />
+    <Compile Include="UI\Converters\StringReplaceConverter.cs" />
+    <Compile Include="UI\Converters\TypeStringConverter.cs" />
+    <Compile Include="UI\DelegateCommand.cs" />
+    <Compile Include="UI\DependencyObjectExtensions.cs" />
+    <Compile Include="UI\Dialogs\About\AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\CleanupProgress\CleanupProgressViewModel.cs" />
+    <Compile Include="UI\Dialogs\CleanupProgress\CleanupProgressWindow.xaml.cs">
+      <DependentUpon>CleanupProgressWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\Options\Cleaning\CleaningFileTypesViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\Cleaning\CleaningGeneralViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\Cleaning\CleaningInsertViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\Cleaning\CleaningParentViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\Cleaning\CleaningRemoveViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\Cleaning\CleaningUpdateViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\Cleaning\CleaningVisualStudioViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\Finding\FindingViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\Formatting\FormattingViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\Collapsing\CollapsingViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\General\FeaturesViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\ISettingToOptionMapping.cs" />
+    <Compile Include="UI\Dialogs\Options\Reorganizing\ReorganizingByAttributesViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\SettingToOptionMapping.cs" />
+    <Compile Include="UI\Dialogs\Options\SettingsToOptionsList.cs" />
+    <Compile Include="UI\Dialogs\Options\ThirdParty\ThirdPartyViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\Digging\DiggingViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\General\GeneralViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\OptionsPageViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\OptionsPageViewModelEnumerableExtensions.cs" />
+    <Compile Include="UI\Dialogs\Options\OptionsViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\OptionsWindow.xaml.cs">
+      <DependentUpon>OptionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\Options\Progressing\ProgressingViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\Reorganizing\ReorganizingRegionsViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\Reorganizing\ReorganizingTypesViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\Reorganizing\ReorganizingParentViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\Reorganizing\ReorganizingGeneralViewModel.cs" />
+    <Compile Include="UI\Dialogs\Options\Switching\SwitchingViewModel.cs" />
+    <Compile Include="UI\Dialogs\Prompts\YesNoPromptViewModel.cs" />
+    <Compile Include="UI\Dialogs\Prompts\YesNoPromptWindow.xaml.cs">
+      <DependentUpon>YesNoPromptWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DragDropAttachedProperties.cs" />
+    <Compile Include="UI\EditableTextBlock.xaml.cs">
+      <DependentUpon>EditableTextBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Enumerations\DropPosition.cs" />
+    <Compile Include="UI\Enumerations\HeaderUpdateMode.cs" />
+    <Compile Include="UI\Enumerations\HeaderPosition.cs" />
+    <Compile Include="UI\Enumerations\NoneEmptyAll.cs" />
+    <Compile Include="UI\Enumerations\AskYesNo.cs" />
+    <Compile Include="UI\Enumerations\IconSetMode.cs" />
+    <Compile Include="UI\Enumerations\ThemeMode.cs" />
+    <Compile Include="UI\ListBoxReorderBehavior.cs" />
+    <Compile Include="UI\NotifiesOnAttribute.cs" />
+    <Compile Include="UI\ThemeManager.cs" />
+    <Compile Include="UI\ToolWindows\BuildProgress\BuildProgressToolWindow.cs" />
+    <Compile Include="UI\ToolWindows\BuildProgress\BuildProgressView.xaml.cs">
+      <DependentUpon>BuildProgressView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ToolWindows\BuildProgress\BuildProgressViewModel.cs" />
+    <Compile Include="UI\ToolWindows\Spade\CodeItemTemplateSelector.cs" />
+    <Compile Include="UI\ToolWindows\Spade\CodeItemToolTipTemplateSelector.cs" />
+    <Compile Include="UI\ToolWindows\Spade\MemberSearchTask.cs" />
+    <Compile Include="UI\ToolWindows\Spade\RadialProgressBar.xaml.cs">
+      <DependentUpon>RadialProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ToolWindows\Spade\SpadeToolWindow.cs" />
+    <Compile Include="UI\ToolWindows\Spade\SpadeView.xaml.cs">
+      <DependentUpon>SpadeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ToolWindows\Spade\SpadeViewModel.cs" />
+    <Compile Include="UI\ToolWindows\Spade\CenterConverter.cs" />
+    <Compile Include="UI\TreeViewBindableSelectedItemBehavior.cs" />
+    <Compile Include="UI\Bindable.cs" />
+    <Compile Include="UI\TreeViewMultipleSelectionBehavior.cs" />
+    <Compile Include="UI\WindowAttachedProperties.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.VisualStudio.SDK.Analyzers.15.8.36\analyzers\cs\Microsoft.VisualStudio.SDK.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.VisualStudio.Threading.Analyzers.15.8.209\analyzers\cs\Microsoft.VisualStudio.Threading.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\Microsoft.VisualStudio.Threading.Analyzers.15.8.209\analyzers\cs\Microsoft.VisualStudio.Threading.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Integration\Images\IDE\progressToolWindow.png" />
@@ -317,6 +421,172 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="UI\Dialogs\About\AboutWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\CleanupProgress\CleanupProgressWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Cleaning\CleaningFileTypesDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Cleaning\CleaningGeneralDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Cleaning\CleaningInsertDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Cleaning\CleaningParentDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Cleaning\CleaningRemoveDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Cleaning\CleaningUpdateDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Cleaning\CleaningVisualStudioDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Finding\FindingDataTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Formatting\FormattingDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Collapsing\CollapsingDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\General\FeaturesDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Reorganizing\ReorganizingByAttributesDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\ThirdParty\ThirdPartyDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Digging\DiggingDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\General\GeneralDataTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Dialogs\Options\OptionsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Progressing\ProgressingDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Reorganizing\ReorganizingRegionsDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Reorganizing\ReorganizingGeneralDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Reorganizing\ReorganizingTypesDataTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Reorganizing\ReorganizingParentDataTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Dialogs\Options\Switching\SwitchingDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Dialogs\Prompts\YesNoPromptWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\EditableTextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Themes\Buttons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Themes\CodeMaidCoreTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Themes\CodeMaidDarkTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Themes\CodeMaidLightTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Themes\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Themes\TreeViews.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ToolWindows\BuildProgress\BuildProgressView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ToolWindows\Spade\CodeItemBaseTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ToolWindows\Spade\CodeItemTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ToolWindows\Spade\CodeItemToolTipTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ToolWindows\Spade\RadialProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ToolWindows\Spade\SpadeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.en-US.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <EmbeddedResource Include="Properties\Resources.zh-Hans.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="source.extension.en-US.resx">
       <MergeWithCTO>true</MergeWithCTO>
       <LogicalName>VSPackage.en-US.resources</LogicalName>

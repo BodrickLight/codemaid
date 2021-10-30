@@ -1864,6 +1864,24 @@ namespace SteveCadwallader.CodeMaid.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sort By Attributes.
+        /// </summary>
+        public static string ReorganizingByAttributes_Header {
+            get {
+                return ResourceManager.GetString("ReorganizingByAttributes_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attributes to reorganize by (one per line, in order of priority).
+        /// </summary>
+        public static string ReorganizingByAttributes_Text {
+            get {
+                return ResourceManager.GetString("ReorganizingByAttributes_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Types.
         /// </summary>
         public static string ReorganizingTypesViewModel_Types {

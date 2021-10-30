@@ -78,7 +78,8 @@ namespace SteveCadwallader.CodeMaid.UI.Dialogs.Options
                                 {
                                     new ReorganizingGeneralViewModel(package, ActiveSettings),
                                     new ReorganizingTypesViewModel(package, ActiveSettings),
-                                    new ReorganizingRegionsViewModel(package, ActiveSettings)
+                                    new ReorganizingRegionsViewModel(package, ActiveSettings),
+                                    new ReorganizingByAttributesViewModel(package, ActiveSettings)
                                 }
                             },
                             new SwitchingViewModel(package, ActiveSettings),
